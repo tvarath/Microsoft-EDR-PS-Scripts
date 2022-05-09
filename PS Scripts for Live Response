@@ -1,0 +1,15 @@
+#Power Shell Scripts for Remote Management of Hosts using Live Response:
+
+
+#1> Signature Details of the Endpoint:
+Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows Defender\Signature Updates'
+
+#2> Initiate Signature update:
+   Set-Location -path 'C:\Program Files\windows defender'
+.\MpCmdRun.exe -signatureupdate
+
+#3> Policy Details:
+Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Microsoft Security Client\'
+
+#4: Remove the restrictions to reachout to the internet for Security Threat Intelligence Update:
+Remove-ItemProperty -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\ -Name DoNotConnectToWindowsUpdateInternetLocations
